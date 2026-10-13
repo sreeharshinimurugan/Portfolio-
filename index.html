@@ -1,823 +1,1043 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Sree Harshini | Portfolio</title>
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #0b0b0b;
-            color: #f5f5f5;
-            line-height: 1.7;
-        }
-
-        /* NAVBAR */
-
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(11, 11, 11, 0.92);
-            backdrop-filter: blur(10px);
-        }
-
-        .navbar {
-            max-width: 1150px;
-            margin: auto;
-            padding: 20px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-        }
-
-        .logo span,
-        span {
-            color: #d4af37;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #ddd;
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #d4af37;
-        }
-
-        .menu {
-            display: none;
-            font-size: 25px;
-            cursor: pointer;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 100vh;
-            max-width: 1150px;
-            margin: auto;
-            padding: 130px 30px 80px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 60px;
-        }
-
-        .hero-text {
-            max-width: 650px;
-        }
-
-        .small-title,
-        .section-title {
-            color: #d4af37;
-            letter-spacing: 4px;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .hero h1 {
-            font-size: clamp(55px, 8vw, 90px);
-            line-height: 1.1;
-            margin: 10px 0;
-        }
-
-        .hero h2 {
-            font-size: 22px;
-            font-weight: 400;
-            color: #ccc;
-        }
-
-        .hero p {
-            color: #aaa;
-            margin: 20px 0;
-            max-width: 600px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .btn {
-            text-decoration: none;
-            padding: 13px 25px;
-            background: #d4af37;
-            color: #080808;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-        }
-
-        .btn.outline {
-            background: transparent;
-            color: #d4af37;
-            border: 1px solid #d4af37;
-        }
-
-        /* PROFILE CIRCLE */
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-        }
-
-        .circle {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            border: 1px solid #d4af37;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            box-shadow: 0 0 60px rgba(212, 175, 55, 0.15);
-        }
-
-        .initial {
-            font-size: 80px;
-            font-weight: 700;
-            color: #d4af37;
-        }
-
-        /* SECTIONS */
-
-        .section {
-            max-width: 1150px;
-            margin: auto;
-            padding: 100px 30px;
-        }
-
-        .section h2 {
-            font-size: 42px;
-            margin: 10px 0 40px;
-        }
-
-        /* ABOUT */
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 60px;
-        }
-
-        .about-content p {
-            color: #aaa;
-            margin-bottom: 20px;
-        }
-
-        .about-card {
-            border-left: 2px solid #d4af37;
-            padding-left: 30px;
-        }
-
-        .about-card strong {
-            color: #fff;
-        }
-
-        .about-card p {
-            color: #aaa;
-        }
-
-        /* SKILLS */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .skill-card {
-            padding: 30px;
-            border: 1px solid #222;
-            background: #101010;
-            transition: 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            border-color: #d4af37;
-        }
-
-        .skill-icon {
-            color: #d4af37;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .skill-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .skill-card p {
-            color: #999;
-            font-size: 14px;
-        }
-
-        /* PROJECTS */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .project-card {
-            padding: 30px;
-            background: #101010;
-            border: 1px solid #222;
-            transition: 0.3s;
-        }
-
-        .project-card:hover {
-            border-color: #d4af37;
-            transform: translateY(-8px);
-        }
-
-        .project-number {
-            color: #d4af37;
-            font-size: 14px;
-            margin-bottom: 25px;
-        }
-
-        .project-card h3 {
-            margin-bottom: 15px;
-        }
-
-        .project-card p {
-            color: #999;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .project-card span {
-            font-size: 12px;
-        }
-
-        /* CONTACT */
-
-        .contact {
-            text-align: center;
-        }
-
-        .contact > p:not(.section-title) {
-            color: #aaa;
-        }
-
-        .contact-info {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .contact-info a {
-            color: #d4af37;
-            text-decoration: none;
-        }
-
-        /* FOOTER */
-
-        footer {
-            border-top: 1px solid #222;
-            padding: 30px;
-            text-align: center;
-            color: #777;
-            font-size: 13px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 800px) {
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 70px;
-                right: 20px;
-                background: #111;
-                padding: 20px;
-                flex-direction: column;
-                gap: 15px;
-                border: 1px solid #333;
-            }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            .menu {
-                display: block;
-            }
-
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-                padding-top: 150px;
-            }
-
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .buttons {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .circle {
-                width: 220px;
-                height: 220px;
-            }
-
-            .initial {
-                font-size: 60px;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 50px;
-            }
-
-            .section h2 {
-                font-size: 32px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Sree Harshini's portfolio — Computer Science student, creative artist and aspiring technology professional.">
+
+  <title>Sree Harshini | Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #080808;
+      --card: #141414;
+      --gold: #d4af37;
+      --light-gold: #f5df91;
+      --text: #f5f5f5;
+      --muted: #b5b5b5;
+      --border: rgba(212, 175, 55, 0.28);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 8, 8, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      color: #ddd;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .menu-btn {
+      display: none;
+      color: var(--gold);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /* BUTTONS */
+
+    .btn {
+      display: inline-block;
+      padding: 11px 22px;
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+      font-weight: 600;
+      transition: 0.3s;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .btn-outline {
+      color: var(--gold);
+      background: transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 24px rgba(212, 175, 55, 0.18);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 86vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(ellipse at 15% 30%, rgba(212,175,55,.10), transparent 42%),
+        radial-gradient(ellipse at 85% 75%, rgba(212,175,55,.07), transparent 40%);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      align-items: center;
+      gap: 55px;
+      padding-top: 45px;
+      padding-bottom: 45px;
+    }
+
+    .eyebrow,
+    .section-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      line-height: 1.15;
+      margin: 15px 0;
+    }
+
+    .gold-text,
+    .section-heading span {
+      color: var(--gold);
+    }
+
+    .hero h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #ddd;
+      margin-bottom: 14px;
+    }
+
+    .hero p,
+    .section-intro {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .profile-image {
+      width: min(310px, 100%);
+      aspect-ratio: 1;
+      margin: auto;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      overflow: hidden;
+      background: #1b1b1b;
+      box-shadow: 0 0 45px rgba(212, 175, 55, 0.2);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 85px 0;
+      scroll-margin-top: 75px;
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      margin: 8px 0 12px;
+    }
+
+    .section-intro {
+      margin-bottom: 35px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 25px;
+      transition: transform .3s, border-color .3s;
+      min-width: 0;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .card h3 {
+      color: var(--light-gold);
+      margin-bottom: 9px;
+      font-size: 1.12rem;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    /* ABOUT */
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .about-highlight {
+      border-left: 3px solid var(--gold);
+      padding-left: 20px;
+      margin-top: 25px;
+    }
+
+    .about-highlight p {
+      margin-bottom: 7px;
+    }
+
+    /* EDUCATION TIMELINE */
+
+    .timeline {
+      border-left: 2px solid var(--gold);
+      margin-left: 9px;
+      padding-left: 25px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -34px;
+      top: 28px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 12px rgba(212,175,55,.4);
+    }
+
+    .timeline-date {
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-bottom: 7px;
+    }
+
+    /* ACADEMIC RESULTS */
+
+    .mark-card {
+      text-align: center;
+    }
+
+    .mark {
+      display: block;
+      color: var(--gold);
+      font-size: 2.2rem;
+      line-height: 1.3;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .mark-card h3 {
+      color: var(--text);
+    }
+
+    .mark-note {
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-top: 8px;
+    }
+
+    /* SKILLS */
+
+    .skill-number {
+      color: var(--gold);
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    /* PROJECTS */
+
+    .project-number {
+      color: var(--gold);
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 4px 11px;
+      border: 1px solid var(--border);
+      color: var(--gold);
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    /* HOBBIES */
+
+    .hobby-icon {
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .henna-link {
+      display: inline-block;
+      color: var(--gold);
+      margin-top: 12px;
+      border-bottom: 1px solid var(--gold);
+      font-weight: 600;
+    }
+
+    /* RESUME */
+
+    .resume-box {
+      padding: 35px;
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      background: linear-gradient(120deg, #17150e, #101010);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .resume-box p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* CONTACT */
+
+    .contact-card a {
+      color: var(--gold);
+      overflow-wrap: anywhere;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 27px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer span {
+      color: var(--gold);
+    }
+
+    /* ANIMATIONS */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 900;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      background: var(--gold);
+      color: #111;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+    }
+
+    /* MOBILE RESPONSIVENESS */
+
+    @media (max-width: 850px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 22px 5%;
+        background: #101010;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 35px;
+      }
+
+      .hero-content > div:first-child {
+        order: 2;
+      }
+
+      .hero-content > div:last-child {
+        order: 1;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .profile-image {
+        width: 225px;
+      }
+
+      .three-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      section {
+        padding: 65px 0;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .grid,
+      .three-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resume-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 25px;
+      }
+
+      .hero h1 {
+        font-size: 2.7rem;
+      }
+
+      .container {
+        width: 90%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-    <!-- NAVIGATION -->
+  <!-- NAVIGATION -->
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">SREE.</a>
 
-    <header>
+      <button class="menu-btn" id="menuBtn"
+        aria-label="Toggle navigation" aria-expanded="false">☰</button>
 
-        <nav class="navbar">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-            <div class="logo">
-                Sree<span>.</span>
-            </div>
-
-            <ul class="nav-links">
-
-                <li>
-                    <a href="#home">Home</a>
-                </li>
-
-                <li>
-                    <a href="#about">About</a>
-                </li>
-
-                <li>
-                    <a href="#skills">Skills</a>
-                </li>
-
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
-
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-
-            </ul>
-
-            <div class="menu">
-                ☰
-            </div>
-
-        </nav>
-
-    </header>
-
+  <main>
 
     <!-- HOME -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
 
-    <section id="home" class="hero">
+        <div>
+          <div class="eyebrow">Computer Science Student & Creative Artist</div>
 
-        <div class="hero-text">
+          <h1>
+            Hello, I'm<br>
+            <span class="gold-text">Sree Harshini</span>
+          </h1>
 
-            <p class="small-title">
-                HELLO, I'M
-            </p>
+          <h2>B.Sc. Computer Science Student</h2>
 
-            <h1>
-                Sree <span>Harshini</span>
-            </h1>
+          <p>
+            A student at Bishop Heber College with an interest in programming,
+            technology, and creative arts. I enjoy learning new skills,
+            building projects, and expressing creativity through art,
+            crochet, and henna designs.
+          </p>
 
-            <h2>
-                B.Sc Computer Science Student
-            </h2>
-
-            <p>
-                Passionate about technology, creativity and learning new things.
-                I am currently developing my skills in programming, web development
-                and creative design.
-            </p>
-
-            <div class="buttons">
-
-                <a href="#projects" class="btn">
-                    View Projects
-                </a>
-
-                <a href="#contact" class="btn outline">
-                    Contact Me
-                </a>
-
-            </div>
-
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#projects">Explore My Work</a>
+            <a class="btn btn-outline" href="#contact">Contact Me</a>
+            <a class="btn btn-outline" href="#resume">My Resume</a>
+          </div>
         </div>
 
-
-        <div class="hero-image">
-
-            <div class="circle">
-
-                <div class="initial">
-                    SH
-                </div>
-
-            </div>
-
+        <div>
+          <div class="profile-image">
+            <img
+              src="IMG-20261011-WA0001.jpg"
+              alt="Sree Harshini profile photo">
+          </div>
         </div>
 
+      </div>
     </section>
-
 
     <!-- ABOUT -->
+    <section id="about">
+      <div class="container reveal">
 
-    <section id="about" class="section">
+        <p class="section-label">Get to know me</p>
+        <h2 class="section-heading">About <span>Me</span></h2>
 
-        <p class="section-title">
-            ABOUT ME
+        <p class="section-intro">
+          A little about my background, interests, and ambitions.
         </p>
 
-        <h2>
-            Turning curiosity into <span>skills.</span>
-        </h2>
+        <div class="card about-text">
+          <p>
+            I am a B.Sc. Computer Science student at Bishop Heber College.
+            I am interested in programming, web development, problem-solving,
+            and creative design.
+          </p>
 
-        <div class="about-content">
+          <p>
+            Alongside my academic journey, I enjoy artistic activities
+            such as drawing, crochet, and henna art. These interests help
+            me develop creativity, patience, and attention to detail.
+          </p>
 
-            <div>
+          <p>
+            I aim to improve my technical skills, gain practical experience,
+            and explore opportunities where technology and creativity can
+            come together.
+          </p>
 
-                <p>
-                    I am a B.Sc Computer Science student with an interest in
-                    programming, technology and creative digital work.
-                </p>
-
-                <p>
-                    I enjoy learning new technologies, working on projects and
-                    improving my problem-solving abilities.
-                </p>
-
-            </div>
-
-
-            <div class="about-card">
-
-                <div>
-
-                    <strong>
-                        Education
-                    </strong>
-
-                    <p>
-                        B.Sc Computer Science
-                    </p>
-
-                </div>
-
-
-                <div>
-
-                    <strong>
-                        Interests
-                    </strong>
-
-                    <p>
-                        Web Development & Technology
-                    </p>
-
-                </div>
-
-            </div>
-
+          <div class="about-highlight">
+            <p><strong>College:</strong> Bishop Heber College</p>
+            <p><strong>Course:</strong> B.Sc. Computer Science</p>
+            <p><strong>Academic period:</strong> 2026–2029</p>
+            <p><strong>Interests:</strong> Technology, Art & Design</p>
+          </div>
         </div>
 
+      </div>
     </section>
 
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container reveal">
+
+        <p class="section-label">My academic journey</p>
+        <h2 class="section-heading">My <span>Education</span></h2>
+
+        <p class="section-intro">
+          My educational background and learning journey.
+        </p>
+
+        <div class="timeline">
+
+          <div class="timeline-item card">
+            <div class="timeline-date">2026 – 2029</div>
+            <h3>B.Sc. Computer Science</h3>
+            <p>Bishop Heber College</p>
+            <p>
+              Developing knowledge of programming, data structures,
+              algorithms, and computer science fundamentals.
+            </p>
+          </div>
+
+          <div class="timeline-item card">
+            <div class="timeline-date">Higher Secondary Education</div>
+            <h3>Savitri Vidyalaya Hindu Girls Higher Secondary School</h3>
+            <p>
+              Completed higher secondary education with 577 marks
+              and scored 100/100 in Computer Science.
+            </p>
+          </div>
+
+          <div class="timeline-item card">
+            <div class="timeline-date">Secondary Education</div>
+            <h3>Savitri Vidyalaya Hindu Girls Higher Secondary School</h3>
+            <p>Completed Class 10 with 477 marks.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ACADEMIC RESULTS -->
+    <section id="results">
+      <div class="container reveal">
+
+        <p class="section-label">Academic achievements</p>
+        <h2 class="section-heading">My <span>Results</span></h2>
+
+        <p class="section-intro">
+          A snapshot of my school academic performance.
+        </p>
+
+        <div class="three-grid">
+
+          <div class="card mark-card">
+            <span class="mark">477</span>
+            <h3>Class 10</h3>
+            <p>SSLC Examination</p>
+            <p class="mark-note">Savitri Vidyalaya Hindu Girls Higher Secondary School</p>
+          </div>
+
+          <div class="card mark-card">
+            <span class="mark">577</span>
+            <h3>Class 12</h3>
+            <p>Higher Secondary Examination</p>
+            <p class="mark-note">Savitri Vidyalaya Hindu Girls Higher Secondary School</p>
+          </div>
+
+          <div class="card mark-card">
+            <span class="mark">100/100</span>
+            <h3>Computer Science</h3>
+            <p>Perfect score</p>
+            <p class="mark-note">Higher Secondary Examination</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
     <!-- SKILLS -->
+    <section id="skills">
+      <div class="container reveal">
 
-    <section id="skills" class="section">
+        <p class="section-label">Technical abilities</p>
+        <h2 class="section-heading">My <span>Skills</span></h2>
 
-        <p class="section-title">
-            MY SKILLS
+        <p class="section-intro">
+          Programming and web technologies I am learning and practising.
         </p>
 
-        <h2>
-            Technologies I'm <span>learning.</span>
-        </h2>
+        <div class="grid">
 
+          <div class="card">
+            <div class="skill-number">01</div>
+            <h3>C Programming</h3>
+            <p>
+              Programming fundamentals, functions, structures,
+              and basic problem-solving.
+            </p>
+          </div>
 
-        <div class="skills-grid">
+          <div class="card">
+            <div class="skill-number">02</div>
+            <h3>HTML</h3>
+            <p>
+              Creating structured web pages with meaningful content.
+            </p>
+          </div>
 
+          <div class="card">
+            <div class="skill-number">03</div>
+            <h3>CSS</h3>
+            <p>
+              Designing responsive layouts and visually appealing interfaces.
+            </p>
+          </div>
 
-            <div class="skill-card">
-
-                <div class="skill-icon">
-                    C
-                </div>
-
-                <h3>
-                    C Programming
-                </h3>
-
-                <p>
-                    Programming fundamentals and problem solving.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <div class="skill-icon">
-                    &lt;/&gt;
-                </div>
-
-                <h3>
-                    HTML
-                </h3>
-
-                <p>
-                    Building structured web pages.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <div class="skill-icon">
-                    CSS
-                </div>
-
-                <h3>
-                    CSS
-                </h3>
-
-                <p>
-                    Creating modern and responsive designs.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card">
-
-                <div class="skill-icon">
-                    JS
-                </div>
-
-                <h3>
-                    JavaScript
-                </h3>
-
-                <p>
-                    Adding interaction and functionality.
-                </p>
-
-            </div>
+          <div class="card">
+            <div class="skill-number">04</div>
+            <h3>Python</h3>
+            <p>
+              Learning programming logic and practising problem-solving.
+            </p>
+          </div>
 
         </div>
-
+      </div>
     </section>
-
 
     <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container reveal">
 
-    <section id="projects" class="section">
+        <p class="section-label">My work</p>
+        <h2 class="section-heading">Featured <span>Projects</span></h2>
 
-        <p class="section-title">
-            MY WORK
+        <p class="section-intro">
+          Academic projects and personal creative work.
         </p>
 
-        <h2>
-            Featured <span>Projects.</span>
-        </h2>
+        <div class="grid">
 
+          <article class="card">
+            <div class="project-number">PROJECT 01</div>
+            <h3>Bank Management System</h3>
+            <p>
+              A C programming project demonstrating basic banking operations
+              such as account creation, deposits, withdrawals, and balance enquiry.
+            </p>
+            <span class="project-tag">C Programming</span>
+          </article>
 
-        <div class="projects-grid">
+          <article class="card">
+            <div class="project-number">PROJECT 02</div>
+            <h3>Personal Portfolio Website</h3>
+            <p>
+              A responsive website showcasing my education, technical skills,
+              academic achievements, projects, and contact information.
+            </p>
+            <span class="project-tag">HTML & CSS</span>
+          </article>
 
+          <article class="card">
+            <div class="project-number">PROJECT 03</div>
+            <h3>Creative Design Work</h3>
+            <p>
+              Personal creative work inspired by art, handmade crafts,
+              visual presentation, and design.
+            </p>
+            <span class="project-tag">Creative Design</span>
+          </article>
 
-            <div class="project-card">
-
-                <div class="project-number">
-                    01
-                </div>
-
-                <h3>
-                    Bank Management System
-                </h3>
-
-                <p>
-                    A college project developed using C to manage basic
-                    banking operations such as account creation,
-                    deposit and withdrawal.
-                </p>
-
-                <span>
-                    C Programming
-                </span>
-
-            </div>
-
-
-            <div class="project-card">
-
-                <div class="project-number">
-                    02
-                </div>
-
-                <h3>
-                    Personal Portfolio
-                </h3>
-
-                <p>
-                    A responsive personal portfolio website designed to
-                    showcase my skills, projects and achievements.
-                </p>
-
-                <span>
-                    HTML • CSS • JavaScript
-                </span>
-
-            </div>
-
-
-            <div class="project-card">
-
-                <div class="project-number">
-                    03
-                </div>
-
-                <h3>
-                    Creative Design Work
-                </h3>
-
-                <p>
-                    A collection of creative digital work including
-                    design concepts and artistic projects.
-                </p>
-
-                <span>
-                    Creative Design
-                </span>
-
-            </div>
+          <article class="card">
+            <div class="project-number">PROJECT 04</div>
+            <h3>Henna Art</h3>
+            <p>
+              An artistic interest focused on henna patterns, detailed designs,
+              and creative expression through hand art.
+            </p>
+            <span class="project-tag">Henna Art</span>
+          </article>
 
         </div>
-
+      </div>
     </section>
 
+    <!-- HOBBIES -->
+    <section id="hobbies">
+      <div class="container reveal">
+
+        <p class="section-label">Beyond technology</p>
+        <h2 class="section-heading">My Creative <span>Side</span></h2>
+
+        <p class="section-intro">
+          Activities that let me explore creativity and develop new ideas.
+        </p>
+
+        <div class="three-grid">
+
+          <div class="card">
+            <div class="hobby-icon">✎</div>
+            <h3>Art & Drawing</h3>
+            <p>
+              Exploring ideas, sketching, and expressing creativity through art.
+            </p>
+          </div>
+
+          <div class="card">
+      <div class="hobby-icon">✿</div>
+            <h3>Crochet</h3>
+            <p>
+              Creating handmade pieces with patience, care, and attention to detail.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="hobby-icon">❋</div>
+            <h3>Henna Artist</h3>
+            <p>
+              Creating decorative henna designs inspired by patterns and artistry.
+            </p>
+
+            <a
+              class="henna-link"
+              href="https://www.instagram.com/henna_with_sree/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Visit henna_with_sree ↗
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume">
+      <div class="container reveal">
+
+        <p class="section-label">Professional profile</p>
+        <h2 class="section-heading">My <span>Resume</span></h2>
+
+        <div class="resume-box">
+          <div>
+            <h3>Interested in my background?</h3>
+            <p>
+              My resume will be available here soon. I will add my
+              resume PDF when it is ready.
+            </p>
+          </div>
+
+          <!-- Later, upload your resume PDF beside index.html
+               and replace the # in href with "Sree_Harshini_Resume.pdf" -->
+          <a class="btn btn-primary" href="#"
+             onclick="alert('Resume coming soon! Please check back later.'); return false;">
+            Resume Coming Soon
+          </a>
+        </div>
+
+      </div>
+    </section>
 
     <!-- CONTACT -->
+    <section id="contact">
+      <div class="container reveal">
 
-    <section id="contact" class="section contact">
+        <p class="section-label">Get in touch</p>
+        <h2 class="section-heading">Let's <span>Connect</span></h2>
 
-        <p class="section-title">
-            GET IN TOUCH
+        <p class="section-intro">
+          Feel free to connect with me for professional opportunities,
+          collaboration, or creative projects.
         </p>
 
-        <h2>
-            Let's <span>connect.</span>
-        </h2>
+        <div class="grid">
 
-        <p>
-            I'm always interested in learning, collaborating and
-            exploring new opportunities.
-        </p>
+          <div class="card contact-card">
+            <h3>Phone</h3>
+            <p>
+              <a href="tel:+917200507767">+91 72005 07767</a>
+            </p>
+          </div>
 
+          <div class="card contact-card">
+            <h3>Email</h3>
+            <p>
+              <a href="mailto:sreeharshinimurugan@gmail.com">
+                sreeharshinimurugan@gmail.com
+              </a>
+            </p>
+          </div>
 
-        <div class="contact-info">
+          <div class="card contact-card">
+            <h3>LinkedIn</h3>
+            <p>
+              <a
+                href="https://www.linkedin.com/in/sreeharshini-m-844931420/"
+                target="_blank"
+                rel="noopener noreferrer">
+                Visit my LinkedIn profile ↗
+              </a>
+            </p>
+          </div>
 
-            <a href="mailto:sreeharshinimurugan@gmail.com">
-                ✉ sreeharshinimurugan@gmail.com
-            </a>
-
-            <a href="https://www.linkedin.com/in/sreeharshini-m-844931420?utm_source=share_via&utm_content=profile&utm_medium=member_android">
-                LinkedIn
-            </a>
+          <div class="card contact-card">
+            <h3>College</h3>
+            <p>Bishop Heber College</p>
+            <p>B.Sc. Computer Science · 2026–2029</p>
+          </div>
 
         </div>
-
+      </div>
     </section>
 
+  </main>
 
-    <!-- FOOTER -->
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>Designed and developed by <span>Sree Harshini</span></p>
+      <p>© <span id="year"></span> All rights reserved.</p>
+    </div>
+  </footer>
 
-    <footer>
+  <button id="backToTop" aria-label="Back to top">↑</button>
 
-        <p>
-            © 2026 Sree Harshini. All Rights Reserved.
-        </p>
+  <!-- JAVASCRIPT -->
+  <script>
+    // Mobile navigation
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
 
-        <p>
-            Designed & Built with ♥
-        </p>
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+      menuBtn.textContent = isOpen ? "✕" : "☰";
+    });
 
-    </footer>
+    // Close mobile menu after selecting a section
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+      });
+    });
 
+    // Scroll reveal animations
+    const revealElements = document.querySelectorAll(".reveal");
 
-    <!-- JAVASCRIPT -->
-
-    <script>
-
-        const menu = document.querySelector(".menu");
-        const navLinks = document.querySelector(".nav-links");
-
-        menu.addEventListener("click", function () {
-
-            navLinks.classList.toggle("show");
-
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
         });
+      }, { threshold: 0.12 });
 
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => {
+        element.classList.add("visible");
+      });
+    }
 
-        // Close menu after clicking a link
+    // Back to top button
+    const backToTop = document.getElementById("backToTop");
 
-        document.querySelectorAll(".nav-links a").forEach(function(link) {
+    window.addEventListener("scroll", () => {
+      backToTop.style.display =
+        window.scrollY > 350 ? "block" : "none";
+    });
 
-            link.addEventListener("click", function() {
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
-                navLinks.classList.remove("show");
-
-            });
-
-        });
-
-    </script>
+    // Automatically update footer year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 
 </body>
 </html>
+
